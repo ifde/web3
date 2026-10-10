@@ -1,32 +1,32 @@
 # Фролов Иван Григорьевич, БПИ-235 
 ### Домашнее задание №2 
 
-## Правила
+## Правила мастерской  
 
-- дерево — `id = 1`;
-- руда — `id = 2`;
-- меч — `id = 3`;
-- `issue` выдаёт дерево и руду, вызвать её может только владелец игры;
-- `craft(n)` сжигает `3 * n` дерева и `2 * n` руды и создаёт `n` мечей;
-- `salvage(n)` в V2 сжигает `n` мечей и выдаёт `n` руды.
+- дерево — `id = 1`
+- руда — `id = 2`
+- меч — `id = 3`
+- `issue` выдаёт дерево и руду, вызвать её может только владелец игры
+- `craft(n)` сжигает `3 * n` дерева и `2 * n` руды и создаёт `n` мечей
+- `salvage(n)` в V2 сжигает `n` мечей и выдаёт `n` руды
 
 Мечи нельзя создать через `issue`. Если контракт-получатель отклоняет токены,
 вся операция откатывается.
 
 ## Структура
 
-- `src/CraftingV1.sol` — первая версия контракта;
-- `src/CraftingV2.sol` — версия с `salvage`;
-- `test/Crafting.t.sol` — тесты, upgrade и fuzz-тест;
-- `foundry.toml` — настройки Foundry.
+- `src/CraftingV1.sol` — первая версия контракта
+- `src/CraftingV2.sol` — версия V2 c `salvage`
+- `test/Crafting.t.sol` — тесты, upgrade и fuzz-тест 
+- `foundry.toml` — настройки Foundry 
 
 ## Версии
 
-- Solidity — `0.8.27`;
-- Foundry — `1.5.1`;
-- `forge-std` — `1.17.0`;
-- OpenZeppelin Contracts Upgradeable — `5.7.0`;
-- OpenZeppelin Foundry Upgrades — `0.4.2`.
+- Solidity — `0.8.27`
+- Foundry — `1.5.1`
+- `forge-std` — `1.17.0`
+- OpenZeppelin Contracts Upgradeable — `5.7.0`
+- OpenZeppelin Foundry Upgrades — `0.4.2`
 
 ## Установка
 
@@ -40,8 +40,7 @@ forge install --no-git OpenZeppelin/openzeppelin-foundry-upgrades@v0.4.2
 
 Используется Transparent Proxy. Пользователь всегда обращается к адресу
 прокси, а не напрямую к implementation. При обновлении меняется только адрес
-implementation, поэтому сохраняются адрес прокси, владелец игры, балансы,
-разрешения операторов и `totalCrafted`.
+implementation, поэтому сохраняются адрес прокси, владелец игры, балансы и т.д.
 
 В V2 новая переменная `totalSalvaged` добавляется после данных V1. 
 
